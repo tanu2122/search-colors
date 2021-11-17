@@ -16,4 +16,4 @@ input gives out a list of colors related to that word.
 | Environment | Base URL | Description  
 | :-------:   | :------: | :----------:
 | Development | [http://localhost:3000](http://localhost:3000) | When running locally on machine 
-| Production | [https://master.d3jkmg959k8ms4.amplifyapp.com/](https://master.d3jkmg959k8ms4.amplifyapp.com/) | Main production environment 
+| Production | [https://amazing-lewin-aeee1d.netlify.app/](https://amazing-lewin-aeee1d.netlify.app/) | Main production environment 
