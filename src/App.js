@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import Masonry from 'react-masonry-css';
 import './App.css';
-
+import JsonData from './MOCK_DATA.json'
+import { useState } from 'react';
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <input 
+      type="text" 
+      placeholder="Search..." 
+      onChange={(event) => {
+        setSearchTerm(event.target.value)
+      }}
+      />
+      
+      <Masonry
+        breakpointCols={4}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
         >
-          Learn React
-        </a>
-      </header>
+      {JsonData.filter((val) => {
+        if (searchTerm === "") {
+          return val
+        } else if (val.color_name.toLowerCase().includes(searchTerm.toLowerCase())) {
+          return val
+        }}).map((val, key) => {
+        return <div style={{
+        backgroundColor: val.color_code
+      }}>
+        <div>{val.color_name}</div>
+        <div>{val.color_code}</div>
+        </div>
+        ;
+      })}
+      </Masonry>
     </div>
   );
 }
